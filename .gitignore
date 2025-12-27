@@ -1,2 +1,3 @@
 host/rust/target
 *.wasm
+.task
