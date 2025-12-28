@@ -9,8 +9,8 @@ use crate::state::States;
 
 mod bindings {
     wasmtime::component::bindgen!({
-        path: "../../adder/world.wit",
-        world: "adder",
+        path: "../../calculator/wit",
+        world: "calculator",
         async: false
     });
 }
@@ -46,12 +46,12 @@ pub fn add(path: PathBuf, x: u32, y: u32) -> wasmtime::Result<u32> {
 
     // Instantiate the component as an instance of the `adder` world,
     // with the generated bindings
-    let instance = bindings::Adder::instantiate(&mut store, &component, &linker)
+    let instance = bindings::Calculator::instantiate(&mut store, &component, &linker)
         .context("Failed to instantiate the example world")?;
 
     // Call the add function on instance
     instance
-        .docs_adder_add()
-        .call_add(&mut store, x, y)
+        .docs_calculator_calculate()
+        .call_eval_expression(&mut store, "123")
         .context("calling add function")
 }
