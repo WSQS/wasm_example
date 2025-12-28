@@ -4,7 +4,9 @@ namespace exports {
     namespace calculator {
       namespace calculate {
         uint32_t EvalExpression(wit::string expr){
-            return 12;
+            std::string s_expr{expr.to_string()};
+            
+            return ::docs::adder::add::Add(1,2);
         }
       }
     }
