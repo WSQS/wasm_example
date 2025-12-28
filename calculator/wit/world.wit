@@ -1,7 +1,7 @@
 // in the 'calculator' project
 
 // wit/world.wit
-package docs:calculator;
+package docs:calculator@0.1.0;
 
 interface calculate {
     eval-expression: func(expr: string) -> u32;
